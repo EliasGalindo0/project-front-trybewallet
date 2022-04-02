@@ -16,10 +16,6 @@ export const userReducer = (email) => ({
   payload: email,
 });
 
-export const loginThunk = (email) => (dispatch) => {
-  dispatch(userReducer(email));
-};
-
 export const newCurrencyList = (currencyList) => ({
   type: UPDATE_CURRENCY_LIST,
   payload: currencyList,

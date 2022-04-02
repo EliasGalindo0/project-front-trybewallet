@@ -13,9 +13,7 @@
 import { GET_USER } from '../actions';
 
 const INITIAL_STATE = {
-  user: {
-    email: '',
-  },
+  email: '',
 };
 // console.log("🚀 ~ file: user.js ~ line 20 ~ INITIAL_STATE", INITIAL_STATE);
 
