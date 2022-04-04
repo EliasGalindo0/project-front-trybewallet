@@ -88,7 +88,7 @@ Login.propTypes = {
   }).isRequired,
 };
 const mapDispatchToProps = (dispatch) => ({
-  dispatchSetValue: (user) => dispatch(userReducer(user.email)),
+  dispatchSetValue: (user) => dispatch(userReducer(user.email, user.isLogged)),
 }
 );
 
