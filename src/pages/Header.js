@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 class Header extends React.Component {
   render() {
     const { email, totalField } = this.props;
+    // console.log(totalField);
     const totalFields = totalField || 0;
     return (
       <div>
@@ -24,7 +25,11 @@ class Header extends React.Component {
 
 Header.propTypes = {
   email: PropTypes.string.isRequired,
-  totalField: PropTypes.number.isRequired,
+  totalField: PropTypes.number,
+};
+
+Header.defaultProps = {
+  totalField: 0,
 };
 
 const mapStateToProps = (state) => ({

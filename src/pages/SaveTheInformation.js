@@ -64,11 +64,11 @@ class SaveTheInformation extends React.Component {
 
 SaveTheInformation.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  expenses: PropTypes.shape({
-    map: PropTypes.func,
-  }).isRequired,
+  expenses: PropTypes.arrayOf(PropTypes.any).isRequired,
 };
+
 const mapStateToProps = (state) => ({
   expenses: state.wallet.expenses,
 });
+
 export default connect(mapStateToProps)(SaveTheInformation);

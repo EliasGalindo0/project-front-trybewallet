@@ -128,9 +128,7 @@ class UserForm extends React.Component {
 }
 
 UserForm.propTypes = {
-  currencyList: PropTypes.shape({
-    map: PropTypes.func,
-  }).isRequired,
+  currencyList: PropTypes.arrayOf(PropTypes.string).isRequired,
   dispatch: PropTypes.func.isRequired,
 };
 
