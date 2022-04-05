@@ -8,10 +8,10 @@ class UserForm extends React.Component {
     super();
     this.state = {
       fieldValue: '',
-      fieldDescription: '...',
+      fieldDescription: '',
       fieldCurrency: 'USD',
-      paymentMethod: '',
-      fieldCategory: '',
+      paymentMethod: 'Dinheiro',
+      fieldCategory: 'Alimentação',
       optionsList: [],
     };
   }
@@ -21,7 +21,7 @@ class UserForm extends React.Component {
     this.setState({
       [name]: value,
     });
-  }
+  };
 
   handleClick = () => {
     const { dispatch } = this.props;

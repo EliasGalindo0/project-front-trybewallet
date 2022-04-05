@@ -1,13 +1,19 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
-import { deleteExpense } from '../actions';
+import { deleteExpense, editExpense } from '../actions';
 
 class SaveTheInformation extends React.Component {
   handleClickDelete = ({ target }) => {
     const { id } = target;
     const { dispatch, expenses } = this.props;
     dispatch(deleteExpense(id, expenses));
+  }
+
+  handleClickEdit = ({ target }) => {
+    const { id } = target;
+    const { dispatch, expenses } = this.props;
+    dispatch(editExpense(id, expenses));
   }
 
   render() {
@@ -41,21 +47,30 @@ class SaveTheInformation extends React.Component {
                 {Number(expense.exchangeRates[expense.currency].ask).toFixed(2)}
               </td>
               <td>
-                {(expense.value * expense.exchangeRates[expense.currency].ask).toFixed(2)}
+                {(expense.value * expense.exchangeRates[expense.currency].ask)
+                  .toFixed(2)}
               </td>
               <td>Real</td>
               <td>
-                <button type="button">editar</button>
+                <button
+                  type="button"
+                  data-testid="edit-btn"
+                  // id={ index }
+                  onClick={ this.handleClickEdit }
+                >
+                  Editar despesa
+                </button>
                 <button
                   data-testid="delete-btn"
-                  id={ expense.id }
+                  // id={ index }
                   type="button"
                   onClick={ this.handleClickDelete }
                 >
-                  excluir
+                  Excluir
                 </button>
               </td>
-            </tr>))}
+            </tr>
+          ))}
         </tbody>
       </table>
     );

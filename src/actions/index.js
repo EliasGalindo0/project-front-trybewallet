@@ -10,6 +10,7 @@ export const GET_USER = 'GET_USER';
 export const UPDATE_CURRENCY_LIST = 'UPDATE_CURRENCY_LIST';
 export const GET_EXPENSES = 'GET_EXPENSES';
 export const DELETE_EXPENSES = 'DELETE_EXPENSES';
+export const EDIT_EXPENSES = 'EDIT_EXPENSES';
 
 export const userReducer = (email) => ({
   type: GET_USER,
@@ -31,6 +32,7 @@ export const updateCurrencys = () => async (dispatch) => {
 export const getExpensesThunk = (expenses) => async (dispatch) => {
   const currency = await fetchCurrency();
   const {
+    id,
     fieldValue,
     fieldDescription,
     fieldCurrency,
@@ -39,6 +41,7 @@ export const getExpensesThunk = (expenses) => async (dispatch) => {
   dispatch({
     type: GET_EXPENSES,
     payload: {
+      id,
       value: fieldValue,
       description: fieldDescription,
       currency: fieldCurrency,
@@ -54,3 +57,8 @@ export const deleteExpense = (identification, expenses) => (dispatch) => {
   newExpenses.forEach((item, index) => { item.id = index; });
   dispatch({ type: DELETE_EXPENSES, payload: newExpenses });
 };
+
+export const editExpense = (payload) => ({
+  type: EDIT_EXPENSES,
+  newExpenses: payload,
+});
