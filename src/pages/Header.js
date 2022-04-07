@@ -15,11 +15,9 @@ class Header extends React.Component {
         </h3>
         <span data-testid="total-field">
           {
-            !totalField ? 0
+            !totalField ? 0.00
               : totalField.toFixed(2)
           }
-          {' '}
-
         </span>
         <h3 data-testid="header-currency-field">
           BRL

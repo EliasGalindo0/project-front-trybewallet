@@ -55,12 +55,14 @@ class SaveTheInformation extends React.Component {
                 <button
                   type="button"
                   data-testid="edit-btn"
+                  // id={ id }
                   onClick={ this.handleClickEdit }
                 >
                   Editar despesa
                 </button>
                 <button
                   data-testid="delete-btn"
+                  // id={ id }
                   type="button"
                   onClick={ this.handleClickDelete }
                 >
