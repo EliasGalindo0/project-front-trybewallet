@@ -6,7 +6,6 @@ import updateField from '../services/updateField';
 const INICIAL_STATE = {
   currencies: [],
   expenses: [],
-  totalField: 0,
 };
 
 export default function walletReducer(state = INICIAL_STATE, action) {

@@ -6,7 +6,7 @@ class Header extends React.Component {
   render() {
     const { email, totalField } = this.props;
     // console.log(totalField);
-    const totalFields = totalField || 0;
+    // const totalFields = totalField || 0;
     // console.log("🚀 ~ file: Header.js ~ line 17 ~ Header ~ render ~ totalField", totalField)
     return (
       <div>
@@ -14,7 +14,11 @@ class Header extends React.Component {
           {`E-mail: ${email}`}
         </h3>
         <span data-testid="total-field">
-          { totalFields.toFixed(2) }
+          {
+            !totalField ? 0
+              : totalField.toFixed(2)
+          }
+          {' '}
 
         </span>
         <h3 data-testid="header-currency-field">

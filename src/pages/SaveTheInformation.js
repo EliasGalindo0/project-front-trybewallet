@@ -34,8 +34,8 @@ class SaveTheInformation extends React.Component {
           </tr>
         </thead>
         <tbody>
-          {expenses.map((expense, index) => (
-            <tr key={ index }>
+          {expenses.map((expense, id) => (
+            <tr key={ id }>
               <td>{expense.description}</td>
               <td>{expense.tag}</td>
               <td>{expense.method}</td>
@@ -55,14 +55,12 @@ class SaveTheInformation extends React.Component {
                 <button
                   type="button"
                   data-testid="edit-btn"
-                  // id={ index }
                   onClick={ this.handleClickEdit }
                 >
                   Editar despesa
                 </button>
                 <button
                   data-testid="delete-btn"
-                  // id={ index }
                   type="button"
                   onClick={ this.handleClickDelete }
                 >
