@@ -18,6 +18,7 @@ class SaveTheInformation extends React.Component {
 
   render() {
     const { expenses } = this.props;
+    console.log(expenses);
     return (
       <table>
         <thead>
@@ -34,8 +35,8 @@ class SaveTheInformation extends React.Component {
           </tr>
         </thead>
         <tbody>
-          {expenses.map((expense, id) => (
-            <tr key={ id }>
+          {expenses.map((expense) => (
+            <tr key={ expense.id }>
               <td>{expense.description}</td>
               <td>{expense.tag}</td>
               <td>{expense.method}</td>
