@@ -18,7 +18,7 @@ class SaveTheInformation extends React.Component {
 
   render() {
     const { expenses } = this.props;
-    console.log(expenses);
+    // console.log(expenses);
     return (
       <table>
         <thead>
@@ -35,7 +35,7 @@ class SaveTheInformation extends React.Component {
           </tr>
         </thead>
         <tbody>
-          {expenses.map((expense) => (
+          {expenses.map((expense, id) => (
             <tr key={ expense.id }>
               <td>{expense.description}</td>
               <td>{expense.tag}</td>
@@ -56,14 +56,14 @@ class SaveTheInformation extends React.Component {
                 <button
                   type="button"
                   data-testid="edit-btn"
-                  // id={ id }
+                  id={ id }
                   onClick={ this.handleClickEdit }
                 >
                   Editar despesa
                 </button>
                 <button
                   data-testid="delete-btn"
-                  // id={ id }
+                  id={ id }
                   type="button"
                   onClick={ this.handleClickDelete }
                 >
