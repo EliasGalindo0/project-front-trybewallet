@@ -24,41 +24,45 @@ class SaveTheInformation extends React.Component {
       <>
         <Table />
         {expenses.map((expense, index) => (
-          <tr key={ expense.id }>
-            <td>{expense.description}</td>
-            <td>{expense.tag}</td>
-            <td>{expense.method}</td>
-            <td>{Number(expense.value).toFixed(2)}</td>
-            <td>
-              {expense.exchangeRates[expense.currency].name.split('/')[0]}
-            </td>
-            <td>
-              {Number(expense.exchangeRates[expense.currency].ask).toFixed(2)}
-            </td>
-            <td>
-              {(expense.value * expense.exchangeRates[expense.currency].ask)
-                .toFixed(2)}
-            </td>
-            <td>Real</td>
-            <td>
-              <button
-                type="button"
-                data-testid="edit-btn"
-                id={ index }
-                // onClick={ this.handleClickEdit }
-              >
-                Editar despesa
-              </button>
-              <button
-                data-testid="delete-btn"
-                id={ index }
-                type="button"
-                onClick={ this.handleClickDelete }
-              >
-                Excluir
-              </button>
-            </td>
-          </tr>
+          <div key={ expense.id }>
+            <tbody>
+              <tr>
+                <td>{expense.description}</td>
+                <td>{expense.tag}</td>
+                <td>{expense.method}</td>
+                <td>{Number(expense.value).toFixed(2)}</td>
+                <td>
+                  {expense.exchangeRates[expense.currency].name.split('/')[0]}
+                </td>
+                <td>
+                  {Number(expense.exchangeRates[expense.currency].ask).toFixed(2)}
+                </td>
+                <td>
+                  {(expense.value * expense.exchangeRates[expense.currency].ask)
+                    .toFixed(2)}
+                </td>
+                <td>Real</td>
+                <td>
+                  <button
+                    type="button"
+                    data-testid="edit-btn"
+                    id={ index }
+                    // onClick={ this.handleClickEdit }
+                  >
+                    Editar despesa
+                  </button>
+                  <button
+                    data-testid="delete-btn"
+                    id={ index }
+                    type="button"
+                    onClick={ this.handleClickDelete }
+                  >
+                    Excluir
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </div>
         ))}
       </>
     );
