@@ -37,6 +37,9 @@ export default function walletReducer(state = INICIAL_STATE, action) {
       totalField: newTotalField,
     };
   default:
-    return state;
+    return {
+      ...state,
+      totalField: updateField(state.expenses),
+    };
   }
 }

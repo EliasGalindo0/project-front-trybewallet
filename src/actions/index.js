@@ -52,13 +52,12 @@ export const getExpensesThunk = (expenses) => async (dispatch) => {
   });
 };
 
-export const deleteExpense = (identification, expenses) => (dispatch) => {
-  const newExpenses = expenses.filter((item) => item.id !== +identification);
-  newExpenses.forEach((item, index) => { item.id = index; });
+export const deleteExpense = (id, expenses) => (dispatch) => {
+  const newExpenses = expenses.filter((expense) => expense.id !== +id);
   dispatch({ type: DELETE_EXPENSES, payload: newExpenses });
 };
 
-export const editExpense = (payload) => ({
-  type: EDIT_EXPENSES,
-  newExpenses: payload,
-});
+// export const editExpense = (payload) => ({
+//   type: EDIT_EXPENSES,
+//   newExpenses: payload,
+// });
