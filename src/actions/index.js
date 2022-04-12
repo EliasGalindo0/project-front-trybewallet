@@ -54,6 +54,7 @@ export const getExpensesThunk = (expenses) => async (dispatch) => {
 
 export const deleteExpense = (id, expenses) => (dispatch) => {
   const newExpenses = expenses.filter((expense) => expense.id !== +id);
+  // newExpenses.forEach((item, index) => { item.id = index; });
   dispatch({ type: DELETE_EXPENSES, payload: newExpenses });
 };
 

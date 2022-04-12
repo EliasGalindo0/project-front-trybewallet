@@ -41,88 +41,103 @@ class UserForm extends React.Component {
     const { currencyList } = this.props;
 
     return (
-      <form className="inputsCategorys" action="">
-        <label htmlFor="fieldValue">
-          Value
-          <input
-            id="fieldValue"
-            data-testid="value-input"
-            type="text"
-            name="fieldValue"
-            value={ fieldValue }
-            onChange={ this.handleChange }
-          />
-        </label>
+      <>
+        <form className="inputsCategorys" action="">
+          <label htmlFor="fieldValue">
+            Value
+            <input
+              id="fieldValue"
+              data-testid="value-input"
+              type="text"
+              name="fieldValue"
+              value={ fieldValue }
+              onChange={ this.handleChange }
+            />
+          </label>
 
-        <label htmlFor="FieldDescription">
-          Description
-          <input
-            id="FieldDescription"
-            data-testid="description-input"
-            type="text"
-            name="fieldDescription"
-            value={ fieldDescription }
-            onChange={ this.handleChange }
-          />
-        </label>
+          <label htmlFor="FieldDescription">
+            Description
+            <input
+              id="FieldDescription"
+              data-testid="description-input"
+              type="text"
+              name="fieldDescription"
+              value={ fieldDescription }
+              onChange={ this.handleChange }
+            />
+          </label>
 
-        <label htmlFor="moeda">
-          Moedas (Currency)
-          <select
-            id="moeda"
-            type="select"
-            name="fieldCurrency"
-            role="combobox"
-            onChange={ this.handleChange }
-          >
-            { currencyList.map((item, index) => (
-              <option
-                key={ index }
-                value={ item }
-              >
-                {item}
+          <label htmlFor="moeda">
+            Moedas (Currency)
+            <select
+              id="moeda"
+              type="select"
+              name="fieldCurrency"
+              role="combobox"
+              onChange={ this.handleChange }
+            >
+              { currencyList.map((item, index) => (
+                <option
+                  key={ index }
+                  value={ item }
+                >
+                  {item}
 
-              </option>))}
+                </option>))}
 
-          </select>
-        </label>
+            </select>
+          </label>
 
-        <label htmlFor="paymentMethod">
-          Payment method
-          <select
-            id="paymentMethod"
-            data-testid="method-input"
-            type="text"
-            name="paymentMethod"
-            value={ paymentMethod }
-            onChange={ this.handleChange }
-          >
-            <option value="Dinheiro">Dinheiro</option>
-            <option value="Cartão de crédito">Cartão de crédito</option>
-            <option value="Cartão de débito">Cartão de débito</option>
-          </select>
-        </label>
+          <label htmlFor="paymentMethod">
+            Payment method
+            <select
+              id="paymentMethod"
+              data-testid="method-input"
+              type="text"
+              name="paymentMethod"
+              value={ paymentMethod }
+              onChange={ this.handleChange }
+            >
+              <option value="Dinheiro">Dinheiro</option>
+              <option value="Cartão de crédito">Cartão de crédito</option>
+              <option value="Cartão de débito">Cartão de débito</option>
+            </select>
+          </label>
 
-        <label htmlFor="fieldCategory">
-          Category
-          <select
-            id="fieldCategory"
-            data-testid="tag-input"
-            type="text"
-            name="fieldCategory"
-            value={ fieldCategory }
-            onChange={ this.handleChange }
-          >
-            <option value="Alimentação">Alimentação</option>
-            <option value="Lazer">Lazer</option>
-            <option value="Trabalho">Trabalho</option>
-            <option value="Transporte">Transporte</option>
-            <option value="Saúde">Saúde</option>
+          <label htmlFor="fieldCategory">
+            Category
+            <select
+              id="fieldCategory"
+              data-testid="tag-input"
+              type="text"
+              name="fieldCategory"
+              value={ fieldCategory }
+              onChange={ this.handleChange }
+            >
+              <option value="Alimentação">Alimentação</option>
+              <option value="Lazer">Lazer</option>
+              <option value="Trabalho">Trabalho</option>
+              <option value="Transporte">Transporte</option>
+              <option value="Saúde">Saúde</option>
 
-          </select>
-        </label>
-        <button type="button" onClick={ this.handleClick }>Adicionar despesa</button>
-      </form>
+            </select>
+          </label>
+          <button type="button" onClick={ this.handleClick }>Adicionar despesa</button>
+        </form>
+        <table>
+          <thead>
+            <th scope="col">Descrição</th>
+            <th scope="col">Tag</th>
+            <th scope="col">Método de pagamento</th>
+            <th scope="col">Valor</th>
+            <th scope="col">Moeda</th>
+            <th scope="col">Câmbio utilizado</th>
+            <th scope="col">Valor convertido</th>
+            <th scope="col">Moeda de conversão</th>
+            <th scope="col">Editar/Excluir</th>
+          </thead>
+        </table>
+      </>
     );
   }
 }

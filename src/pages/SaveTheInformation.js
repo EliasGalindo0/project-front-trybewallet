@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 import { deleteExpense } from '../actions';
-import Table from './Table';
 
 class SaveTheInformation extends React.Component {
   handleClickDelete = ({ target }) => {
@@ -21,10 +20,9 @@ class SaveTheInformation extends React.Component {
     const { expenses } = this.props;
     // console.log(expenses);
     return (
-      <>
-        <Table />
-        {expenses.map((expense, index) => (
-          <div key={ expense.id }>
+      <div>
+        { !expenses ? null : expenses.map((expense) => (
+          <table key={ expense.id }>
             <tbody>
               <tr>
                 <td>{expense.description}</td>
@@ -46,14 +44,13 @@ class SaveTheInformation extends React.Component {
                   <button
                     type="button"
                     data-testid="edit-btn"
-                    id={ index }
-                    // onClick={ this.handleClickEdit }
+                    id={ expense.id }
                   >
                     Editar despesa
                   </button>
                   <button
                     data-testid="delete-btn"
-                    id={ index }
+                    id={ expense.id }
                     type="button"
                     onClick={ this.handleClickDelete }
                   >
@@ -62,9 +59,9 @@ class SaveTheInformation extends React.Component {
                 </td>
               </tr>
             </tbody>
-          </div>
+          </table>
         ))}
-      </>
+      </div>
     );
   }
 }
