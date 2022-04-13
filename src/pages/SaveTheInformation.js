@@ -20,48 +20,59 @@ class SaveTheInformation extends React.Component {
     const { expenses } = this.props;
     // console.log(expenses);
     return (
-      <div>
-        { !expenses ? null : expenses.map((expense) => (
-          <table key={ expense.id }>
-            <tbody>
-              <tr>
-                <td>{expense.description}</td>
-                <td>{expense.tag}</td>
-                <td>{expense.method}</td>
-                <td>{Number(expense.value).toFixed(2)}</td>
-                <td>
-                  {expense.exchangeRates[expense.currency].name.split('/')[0]}
-                </td>
-                <td>
-                  {Number(expense.exchangeRates[expense.currency].ask).toFixed(2)}
-                </td>
-                <td>
-                  {(expense.value * expense.exchangeRates[expense.currency].ask)
-                    .toFixed(2)}
-                </td>
-                <td>Real</td>
-                <td>
-                  <button
-                    type="button"
-                    data-testid="edit-btn"
-                    id={ expense.id }
-                  >
-                    Editar despesa
-                  </button>
-                  <button
-                    data-testid="delete-btn"
-                    id={ expense.id }
-                    type="button"
-                    onClick={ this.handleClickDelete }
-                  >
-                    Excluir
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Descrição</th>
+            <th scope="col">Tag</th>
+            <th scope="col">Método de pagamento</th>
+            <th scope="col">Valor</th>
+            <th scope="col">Moeda</th>
+            <th scope="col">Câmbio utilizado</th>
+            <th scope="col">Valor convertido</th>
+            <th scope="col">Moeda de conversão</th>
+            <th scope="col">Editar/Excluir</th>
+          </tr>
+        </thead>
+        { expenses.map((expense) => (
+          <tbody key={ expense.id }>
+            <tr>
+              <td>{expense.description}</td>
+              <td>{expense.tag}</td>
+              <td>{expense.method}</td>
+              <td>{Number(expense.value).toFixed(2)}</td>
+              <td>
+                {expense.exchangeRates[expense.currency].name.split('/')[0]}
+              </td>
+              <td>
+                {Number(expense.exchangeRates[expense.currency].ask).toFixed(2)}
+              </td>
+              <td>
+                {(expense.value * expense.exchangeRates[expense.currency].ask)
+                  .toFixed(2)}
+              </td>
+              <td>Real</td>
+              <td>
+                <button
+                  type="button"
+                  data-testid="edit-btn"
+                  id={ expense.id }
+                >
+                  Editar despesa
+                </button>
+                <button
+                  data-testid="delete-btn"
+                  id={ expense.id }
+                  type="button"
+                  onClick={ this.handleClickDelete }
+                >
+                  Excluir
+                </button>
+              </td>
+            </tr>
+          </tbody>
         ))}
-      </div>
+      </table>
     );
   }
 }
